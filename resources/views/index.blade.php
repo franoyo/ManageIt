@@ -4,11 +4,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ManageIt</title>
-    <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/style.css?v=1.2') }}">
 </head>
 
 <body>
 @include("login")
+@unless($errors->isEmpty())
+@include("alerta")
+<script>
+    const desplieguez=document.getElementById("main-container8");
+    setTimeout(() => {
+        desplieguez.classList.add("watch")
+    }, 500);
+    </script>
+@endunless
     <button id="btn" onclick=aparecerModal() >INICIAR SESION</button>
     <header class="cabecera-container">
         <div class="put-logo">

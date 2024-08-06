@@ -18,24 +18,25 @@
         <div class="recordatorio" id="recordatorio">
             Recuerda, que tambien puedes compartir tu usuario por si quieres que alguien mas de tu confianza pueda agregar mas tareas o modificarlas!
         </div>
-        <form class="container-login-new" action="" id="container-registro" method="post">
+        <form class="container-login-new" action="{{route('store')}}" id="container-registro" method="post">
             <div class="put-logo">
+                @csrf
                 <a href=""><img class="img" src="{{asset('img/logo_manageIt1-removebg-preview.png') }}" alt=""></a>
             </div>
             <div class="put-title">
                 POR FAVOR REGISTRESE
             </div>
             <div class="put-input">
-                <input class="inp" type="email" name="name" placeholder="NOMBRE DE USUARIO:">
+                <input class="inp" type="text" name="name" placeholder="NOMBRE DE USUARIO:">
             </div>
             <div class="put-input">
-                <input class="inp" type="password" name="email" placeholder="EMAIL:">
+                <input class="inp" type="email" name="email" placeholder="EMAIL:">
             </div>
             <div class="put-input">
                 <input class="inp" type="password" name="password" placeholder="CONTRASEÑA:">
             </div>
             <div class="put-input">
-                <input class="inp" type="password" name="password" placeholder="REPETIR CONTRASEÑA:">
+                <input class="inp" type="password" name="password_confirmation" placeholder="REPETIR CONTRASEÑA:">
             </div>
 
             <div class="final">
@@ -50,6 +51,7 @@
         </form>
 
         <form class="container-login" id="container-login" action="" method="post">
+            @csrf
             <div class="put-logo">
                 <a href=""><img class="img" src="{{asset('img/logo_manageIt1-removebg-preview.png') }}" alt=""></a>
             </div>

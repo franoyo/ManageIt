@@ -1,0 +1,99 @@
+body{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    
+    }
+
+    .main-container8{
+        opacity: 0;
+        transition: 0.5s;
+        width: 100%;
+        height: 100vh;
+        display: flex;
+        position: fixed;
+        justify-content: center;
+        align-items: center;
+        background-color: rgba(155, 155, 155,0.5);
+    }
+    .main-container8 .alerta{
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        width: 28%;
+        height: 60%;
+        background-color: #B6CCE1;
+        color: black;
+        overflow: hidden;
+        border-radius: 0.5vw;
+        border: solid 0.2vw white;
+        box-shadow: 2.3vw 2vw 0.8vw -0.5vw rgba(0,0,0,0.75);
+    }
+    .alerta .put-img{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: 50%;
+    
+    }
+    .put-img .image{
+    display: flex;
+    width: 31%;
+    height: 58%;
+    animation: grande 4s ease-in-out infinite;  
+    
+    }
+    .alerta .put-text{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        width: 80%;
+        height: 35%;
+       font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+       font-weight: 600;
+        font-size: 1.2vw;
+    }
+    .alerta .put-button{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        height: 15%;
+    }
+    @keyframes grande {
+       
+    50%{
+    transform: scale(1.4);
+    
+    } 
+    
+    
+    }
+    #ñe{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 15%;
+    height: 80%;
+    background-color: #2D3237;
+    color: white;
+    font-size: 2.5vw;
+    border-radius: 0.3vw;
+    cursor: pointer;
+    transition: 0.5s;
+    }
+    #ñe:hover{
+        transform:scale(1.3);
+        border-radius: 15%;
+        
+
+    }
+    .watch{
+        opacity: 1;
+        pointer-events: auto;
+        z-index: 5;
+    }
+
