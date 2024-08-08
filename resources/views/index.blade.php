@@ -9,6 +9,15 @@
 
 <body>
 @include("login")
+@if(session('success'))
+@include('alertaSuccess')
+<script>
+const desplieguez=document.getElementById("main-container8");
+    setTimeout(() => {
+        desplieguez.classList.add("watch")
+    }, 500);
+</script>
+@endif
 @unless($errors->isEmpty())
 @include("alerta")
 <script>

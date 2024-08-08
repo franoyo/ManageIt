@@ -27,6 +27,6 @@ class loginRegisterController extends Controller
             'password' => Hash::make($request->password)
         ]);
         $credentials = $request->only('email', 'password');
-        return redirect()->back()->withSuccess("usuario creado correctamente");
+        return redirect()->back()->withSuccess("USUARIO CREADO CORRECTAMENTE");
     }
 }

@@ -4,17 +4,40 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard</title>
-    <link rel="stylesheet" href="{{asset('css/styleDashboard.css')}}">
+    <link rel="stylesheet" href="{{asset('css/styleDashboard.css?v=0.35')}}">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 </head>
 <body>
+    @include('agregarTarea')
+    <button id="agregar" onclick="mostrarAlerta()">+</button>
     <header class="header-container">
+
+        <div class="vizajoso" id="visaje">
+            <img width="100%" height="100%" src="{{asset('img/soloLogo.png')}}" alt="">
+            </div>
+            <div class="content-vizajoso" id="content-vizajoso">
+                {{session('success')}}
+            </div>
         <div class="put-logo">
-            <img width="85%" height="62.5%" src="{{ asset('img/logo_manageIt1-removebg-preview.png') }}" alt="">
+            <img class="log" id="log" src="{{ asset('img/logo_manageIt1-removebg-preview.png') }}" alt="">
         </div>
+        @if(session('success'))
+
+        <script>
+var icono=document.getElementById("visaje")
+var contenido=document.getElementById("content-vizajoso")
+var logo=document.getElementById("log")
+
+logo.classList.add("animation-log")
+contenido.classList.add("animation-content-vizajoso")
+icono.classList.add("animation-vizajoso")
+
+        </script>
+        @endif
 <div class="put-title">AGENDA</div>
         <div class="put-logo">
-            <form id="cloze" action="">
+            <form id="cloze" action="{{route('logout')}}" method="POST">
+                @csrf
                 <input id="btna" type="submit" value="CERRAR SESION">
             </form>
         </div>
@@ -32,20 +55,21 @@
                 </form>
             </nav>
             <div class="put-cards">
+                @foreach ($tareas as $tarea)
                 <div class="card">
 <div class="tarea">
-    falla area de mantenimiento
+    {{$tarea->nombre_tarea}}
 </div>
 <div class="tarea2">
     <div class="mitad">
         <div class="title">Fecha:</div>
         <div class="info">
-            17/02/2024
+            {{$tarea->fecha_tarea}}
         </div>
     </div>
     <div class="mitad">
         <div class="title">Porcentaje:</div>
-        <div class="info">90%</div>
+        <div class="info"> {{$tarea->porcentaje}}%</div>
     </div>
 </div>
 <div class="tarea3">
@@ -53,7 +77,7 @@
     LUGAR:
 </div>
 <div class="mid2">
-    SUBA
+    {{$tarea->lugar}}
 </div>
 </div>
 <div class="tarea4">
@@ -61,7 +85,7 @@
         Descripcion de la tarea
     </div>
     <div class="description">
-se tiene que ir y arreglarlo lo mas rapidamente
+        {{$tarea->descripcion_tarea}}
     </div>
 </div>
 <nav class="options">
@@ -70,14 +94,28 @@ se tiene que ir y arreglarlo lo mas rapidamente
     <a href=""><i class="bi bi-trash-fill"></i></a>
 </nav>
 <div class="barra-porcentaje">
-    <div id="barra" style="width: 95%;"></div>
+    <div id="barra" style="width: {{$tarea->porcentaje}}%;"></div>
 </div>
                 </div>
+                @endforeach
             </div>
             <nav class="container-movebuttons">
-               
+               <div class="poner-btn">
+                <button class="btns"><i class="bi bi-caret-left-square-fill"></i></button>
+                <button class="btns"><i class="bi bi-caret-right-square-fill"></i></button>
+               </div>
             </nav>
         </div>
     </main>
+    <script>
+    var arm=document.getElementById("container-modal")
+    function mostrarAlerta(){
+            arm.classList.add("deploy")
+}
+function inha(){
+    arm.classList.remove("deploy")
+
+}
+    </script>
 </body>
 </html>

@@ -44,4 +44,9 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+
+    public function tareas()
+    {
+        return $this->hasMany(tarea::class, 'id_user');
+    }
 }

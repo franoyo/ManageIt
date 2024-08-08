@@ -50,7 +50,7 @@
 
         </form>
 
-        <form class="container-login" id="container-login" action="" method="post">
+        <form class="container-login" id="container-login" action="{{route('authenticate')}}" method="post">
             @csrf
             <div class="put-logo">
                 <a href=""><img class="img" src="{{asset('img/logo_manageIt1-removebg-preview.png') }}" alt=""></a>
@@ -59,10 +59,10 @@
                 POR FAVOR LOGUEATE!
             </div>
             <div class="put-input">
-                <input class="inp" name="correo" type="email" placeholder="CORREO:">
+                <input class="inp" name="email" type="email" placeholder="CORREO:">
             </div>
             <div class="put-input">
-                <input class="inp" name="contraseña" type="password" placeholder="CONTRASEÑA:">
+                <input class="inp" name="password" type="password" placeholder="CONTRASEÑA:">
             </div>
             <div class="final">
                 <input class="btn" type="submit" value="INICIAR SESION">
