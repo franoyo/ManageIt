@@ -7,6 +7,9 @@ use App\Http\Controllers\TareasController;
 Route::get('/', function () {
     return view('index');
 })->name('index');
+Route::get('/index', function () {
+    return view('index');
+});
 Route::controller(LoginRegisterController::class)->group(function () {
     Route::post('/store', 'store')->name('store');
 });
