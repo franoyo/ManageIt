@@ -10,7 +10,9 @@ class TareasController extends Controller
     public function dashboard(Request $request)
     {
         if (Auth::check()) { 
-            $tarea= tarea::all();
+            $tarea=  tarea::where('estado', 1)
+            ->where('id_user', Auth::id())
+            ->get();
             
     return view('dashboard',['tareas'=>$tarea]); 
         }

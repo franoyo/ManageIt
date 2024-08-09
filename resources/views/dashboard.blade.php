@@ -54,7 +54,7 @@ icono.classList.add("animation-vizajoso")
                     <input id="buscador" placeholder="BUSCADOR:" type="search" name="" id="">
                 </form>
             </nav>
-            <div class="put-cards">
+            <div class="put-cards" id="deslizar">
                 @foreach ($tareas as $tarea)
                 <div class="card">
 <div class="tarea">
@@ -101,8 +101,8 @@ icono.classList.add("animation-vizajoso")
             </div>
             <nav class="container-movebuttons">
                <div class="poner-btn">
-                <button class="btns"><i class="bi bi-caret-left-square-fill"></i></button>
-                <button class="btns"><i class="bi bi-caret-right-square-fill"></i></button>
+                <button class="btns" id="izq"><i class="bi bi-caret-left-square-fill"></i></button>
+                <button class="btns" id="der"><i class="bi bi-caret-right-square-fill"></i></button>
                </div>
             </nav>
         </div>
@@ -116,6 +116,48 @@ function inha(){
     arm.classList.remove("deploy")
 
 }
+
+const izq = document.getElementById("izq")
+const der = document.getElementById("der")
+const slider = document.getElementById("deslizar")
+function guardarPosicionSlider() {
+    const posicionActual = slider.scrollLeft;
+    localStorage.setItem('posicionSlider', posicionActual);
+}
+
+// Función para restaurar la posición del slider desde el almacenamiento local
+function restaurarPosicionSlider() {
+    const posicionGuardada = localStorage.getItem('posicionSlider');
+    if (posicionGuardada !== null) {
+        slider.scrollLeft = parseInt(posicionGuardada);
+    }
+}
+
+// Evento que se dispara cuando se hace clic en los botones de desplazamiento
+izq.addEventListener('click', () => {
+    const porcentajeDesplazamiento = 99; // Porcentaje de desplazamiento deseado
+    const desplazamiento = slider.offsetWidth * (porcentajeDesplazamiento / 100);
+    slider.scrollLeft -= desplazamiento;
+});
+
+der.addEventListener('click', () => {
+    const porcentajeDesplazamiento = 99; // Porcentaje de desplazamiento deseado
+    const desplazamiento = slider.offsetWidth * (porcentajeDesplazamiento / 100);
+    slider.scrollLeft += desplazamiento;
+});
+
+// Evento que se dispara cuando se ha completado el desplazamiento del slider
+slider.addEventListener('scroll', () => {
+    // Espera un breve momento para asegurarse de que el desplazamiento se ha completado completamente
+    setTimeout(() => {
+        guardarPosicionSlider(); // Guarda la nueva posición del slider
+    }, 100); // Ajusta el tiempo según sea necesario
+});
+
+// Llama a la función para restaurar la posición del slider cuando la página se carga
+window.addEventListener('load', () => {
+    restaurarPosicionSlider();
+});
     </script>
 </body>
 </html>

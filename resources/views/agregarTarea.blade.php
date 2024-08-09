@@ -73,6 +73,8 @@
   this.style.background = 'linear-gradient(to right, #4CAF50 ' + value + '%, #88aff8 ' + value + '%)';
 });
 
+
+
     
 </script>
 </body>
