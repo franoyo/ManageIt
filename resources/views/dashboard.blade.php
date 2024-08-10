@@ -4,10 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard</title>
-    <link rel="stylesheet" href="{{asset('css/styleDashboard.css?v=0.35')}}">
+    <link rel="stylesheet" href="{{asset('css/styleDashboard.css?v=0.36')}}">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 </head>
 <body>
+    @include('alertaEliminar')
     @include('agregarTarea')
     <button id="agregar" onclick="mostrarAlerta()">+</button>
     <header class="header-container">
@@ -89,9 +90,9 @@ icono.classList.add("animation-vizajoso")
     </div>
 </div>
 <nav class="options">
-    <a href=""><i class="bi bi-eye-fill"></i></a>
-    <a href=""><i class="bi bi-pencil-square"></i></a>
-    <a href=""><i class="bi bi-trash-fill"></i></a>
+    <a href class="ñema"><i class="bi bi-eye-fill"></i></a>
+    <a class="ñema" href=""><i class="bi bi-pencil-square"></i></a>
+    <a class="delete-button ñema" data-id="{{$tarea->id}}" data-tarea="{{$tarea->nombre_tarea}}"><i class="bi bi-trash-fill "></i></a>
 </nav>
 <div class="barra-porcentaje">
     <div id="barra" style="width: {{$tarea->porcentaje}}%;"></div>
@@ -158,6 +159,27 @@ slider.addEventListener('scroll', () => {
 window.addEventListener('load', () => {
     restaurarPosicionSlider();
 });
+
+var deleteButtons = document.getElementsByClassName('delete-button');
+            const launcAlert=document.getElementById("alertitaz");
+            const closeButton=document.getElementById("close");
+          
+            for (var i = 0; i < deleteButtons.length; i++) {
+              deleteButtons[i].addEventListener('click', function(e) {
+                e.preventDefault(); // Prevenir el comportamiento predeterminado del enlace
+                var id = this.getAttribute('data-id'); // Obtener la ID almacenada en data-id
+                var tarea=this.getAttribute('data-tarea')
+                // Mostrar una alerta con la ID correspondiente
+                launcAlert.classList.add("launch")
+                var lil=document.getElementById("inp");
+                var inputTarea=document.getElementById("tarea")
+                inputTarea.value=tarea;
+                lil.value = id;
+              });
+            }
+            closeButton.addEventListener('click', function(){
+                launcAlert.classList.remove("launch");
+            })
     </script>
 </body>
 </html>

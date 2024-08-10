@@ -1,0 +1,123 @@
+body{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+:root {
+    --text-color:white;
+  }
+.principal-container{
+display: flex;
+position: fixed;
+justify-content: center;
+align-items: center;
+width: 100%;
+height: 100vh;
+background-color: rgba(128, 128, 128, 0.3);
+opacity: 0;
+pointer-events: none;
+z-index: 5;
+transition: 0.5s;
+
+
+}
+.principal-container .alerta-container{
+    display: flex;
+    flex-direction: column;
+    width:37%;
+height: 47%;
+background-color:#5cd6eb;
+background: #403434;
+border: 1.5px solid rgba(209, 213, 219, 0.3);
+box-shadow: 0 0 10px 5px rgba(255, 255, 255, 0.7);
+border-radius: 1vw;
+color: var(--text-color);
+}
+.alerta-container .put-img-text{
+    width: 100%;
+    height: 70%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: 1.5vw;
+    font-weight: 600
+
+;
+}
+.alerta-container .put-button{
+display: flex;
+align-items: center;
+justify-content: space-around;
+width: 100%;
+height: 30%;
+
+}
+.put-button .btn{
+    width: 10%;
+    height: 50%;
+    font-size: 2.75vw;
+    border: none;
+    background: none;
+    color: var(--text-color);
+    cursor: pointer;
+    transition: 0.5s;
+}
+.btn:hover{
+    transform: scale(1.2);
+    color: #48E775;
+}
+.put-button .x{
+    font-size: 2.75vw;
+    cursor: pointer;
+    transition: 0.5s;
+}
+.x:hover{
+    transform: scale(1.2);
+    color: #48E775;
+}
+#icon{
+    font-size: 5.5vw;
+    animation: symbol 5s ease-in-out infinite
+
+}
+#inp{
+    display: flex;
+    width: 15%;
+    height: 15%;
+    text-align: center;
+    font-size: 1.5vw;
+    background: none;
+    outline: none;
+    border: none;
+    font-family: cursive;
+    color: var(--text-color);
+
+}
+#tarea{
+    display: flex;
+    width: 90%;
+    height: 25%;
+    text-align: center;
+    font-size: 1.3vw;
+    background: none;
+    outline: none;
+    border: none;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    text-transform: uppercase;
+    color: var(--text-color);
+    font-weight: 600
+}
+.launch{opacity: 1 !important;
+    pointer-events: auto !important;
+
+
+}
+@keyframes symbol {
+
+    50%{
+        transform: scale(1.3);
+        color: #48E775;
+    }
+}

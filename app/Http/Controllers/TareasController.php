@@ -69,5 +69,15 @@ class TareasController extends Controller
 
 
     }
+    public function inhabilitarTarea(Request $request){
+        $request->validate([
+            'id' => 'required|integer|max:100',
+        ]);
+        $id = $request->input('id');
+        $cambiarEstado=tarea::findOrfail($id);
+        $cambiarEstado->estado=0;
+        $cambiarEstado->save();
+        return redirect()->back()->withSuccess("Tarea Cancelada Correctamente!");
+    }
 
 }

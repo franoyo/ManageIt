@@ -18,6 +18,7 @@ Route::controller(TareasController::class)->group(function () {
     Route::post('/authenticate','authenticate')->name('authenticate');
     Route::post('/logout','logout')->name('logout');
     Route::post('/agregarTarea','agregarTarea')->name('agregarTarea');
+    Route::post('/inhabilitar','inhabilitarTarea')->name('inhabilitar');
 })->middleware('usuario');
 
 

@@ -317,6 +317,9 @@ overflow: hidden;
     font-size: 2vw;
     text-decoration: none;
 }
+.options .ñema{
+    cursor: pointer;
+}
 a{
     color:white;
 }
