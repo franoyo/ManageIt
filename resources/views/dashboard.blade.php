@@ -4,12 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard</title>
-    <link rel="stylesheet" href="{{asset('css/styleDashboard.css?v=0.36')}}">
+    <link rel="stylesheet" href="{{asset('css/styleDashboard.css?v=1')}}">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 </head>
 <body>
     @include('alertaEliminar')
     @include('agregarTarea')
+    @include('editarTarea')
     <button id="agregar" onclick="mostrarAlerta()">+</button>
     <header class="header-container">
 
@@ -91,7 +92,7 @@ icono.classList.add("animation-vizajoso")
 </div>
 <nav class="options">
     <a href class="ñema"><i class="bi bi-eye-fill"></i></a>
-    <a class="ñema" href=""><i class="bi bi-pencil-square"></i></a>
+    <a class="ñema edit-button" data-id="{{$tarea->id}}" href=""><i class="bi bi-pencil-square"></i></a>
     <a class="delete-button ñema" data-id="{{$tarea->id}}" data-tarea="{{$tarea->nombre_tarea}}"><i class="bi bi-trash-fill "></i></a>
 </nav>
 <div class="barra-porcentaje">
@@ -180,6 +181,48 @@ var deleteButtons = document.getElementsByClassName('delete-button');
             closeButton.addEventListener('click', function(){
                 launcAlert.classList.remove("launch");
             })
+
+//funcion obtener datos en tiempo real sin recargar pagina con ajax!!            
+var reagendarModal=document.getElementById("container-modal-editar")
+var infoButtons = document.getElementsByClassName('edit-button');
+for (var i = 0; i < infoButtons.length; i++) {
+    infoButtons[i].addEventListener('click', function(e) {
+      e.preventDefault(); // Prevenir el comportamiento predeterminado del enlace
+      var id = this.getAttribute('data-id'); // Obtener la ID almacenada en data-id
+  
+      // Mostrar una alerta con la ID correspondiente
+      reagendarModal.classList.add("deploy")
+
+      var get=document.getElementById("receptacion");
+      get.value = id;
+      if (id !== "") {
+      
+      var ruta = "{{ route('obtenerDatosTareasAjax','id') }}";
+      ruta = ruta.replace('id', id);
+      fetch(ruta)
+          .then(response => response.json())
+          .then(data => {
+
+              document.getElementById('tareita').value = data.nombre_tarea;
+              document.getElementById('lugar').value = data.lugar;
+              document.getElementById('notas').value = data.notas;
+              document.getElementById('fecha').value =data.fecha_tarea;
+              document.getElementById('descripcion').value = data.descripcion_tarea;
+              document.getElementById('slider2').value = data.porcentaje;
+              document.getElementById('sliderValueZ').innerText = data.porcentaje;
+
+          })
+          .catch(error => {
+              console.error('Error:', error);
+          });
+  }
+    });
+  } 
+var editModal=document.getElementById("container-modal-editar")
+  function display(){
+    editModal.classList.remove("deploy")
+
+}
     </script>
 </body>
 </html>

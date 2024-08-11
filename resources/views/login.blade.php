@@ -59,10 +59,10 @@
                 POR FAVOR LOGUEATE!
             </div>
             <div class="put-input">
-                <input class="inp" name="email" type="email" placeholder="CORREO:">
+                <input class="inp" name="email" type="email" placeholder="CORREO:" required>
             </div>
             <div class="put-input">
-                <input class="inp" name="password" type="password" placeholder="CONTRASEÑA:">
+                <input class="inp" name="password" type="password" placeholder="CONTRASEÑA:" required>
             </div>
             <div class="final">
                 <input class="btn" type="submit" value="INICIAR SESION">

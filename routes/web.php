@@ -18,7 +18,9 @@ Route::controller(TareasController::class)->group(function () {
     Route::post('/authenticate','authenticate')->name('authenticate');
     Route::post('/logout','logout')->name('logout');
     Route::post('/agregarTarea','agregarTarea')->name('agregarTarea');
+    Route::post('/updateTarea','updateTarea')->name('updateTarea');
     Route::post('/inhabilitar','inhabilitarTarea')->name('inhabilitar');
+    Route::get('/obtenerDatosTareaAjax/{id}', 'obtenerDatosTareasAjax')->name('obtenerDatosTareasAjax');
 })->middleware('usuario');
 
 

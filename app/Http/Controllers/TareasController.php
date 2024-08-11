@@ -79,5 +79,29 @@ class TareasController extends Controller
         $cambiarEstado->save();
         return redirect()->back()->withSuccess("Tarea Cancelada Correctamente!");
     }
+    public function obtenerDatosTareasAjax($id){
+$tarea=tarea::find($id);
+return response()->json([
+    'nombre_tarea' => $tarea->nombre_tarea,
+    'lugar' => $tarea->lugar,
+    'notas' => $tarea->notas,
+    'fecha_tarea' => $tarea->fecha_tarea,
+    'descripcion_tarea' => $tarea->descripcion_tarea,
+    'porcentaje'=> $tarea->porcentaje,
+]);
+    }
+    public function updateTarea(Request $request){
+        $id = $request->input('id');
+        $tarea = tarea::find($id);
+        $tarea->nombre_tarea = $request->input('tarea');
+        $tarea->lugar = $request->input('lugar');
+        $tarea->notas = $request->input('notas') ;
+        $tarea->fecha_tarea = $request->input('fecha');
+        $tarea->descripcion_tarea = $request->input('descripcion');
+        $tarea->porcentaje = $request->input('slider');
+        $tarea->save();
+        return redirect()->back()->withSuccess("Los datos se han modificado correctamente!");
+        ;
+    }
 
 }
