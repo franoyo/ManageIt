@@ -51,7 +51,7 @@ icono.classList.add("animation-vizajoso")
         <div class="container-cards">
             <nav class="bar-options">
                 <div class="container-reportes">
-                    <a class="reporte" href="">EXCEL</a>
+                    <a class="reporte" href="{{route('tareasExcel')}}">EXCEL</a>
                     <a class="reporte" href="">PDF</a>
                 </div>
                 <form class="container-search" action="">
