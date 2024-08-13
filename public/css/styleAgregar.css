@@ -198,9 +198,15 @@ transition: 0.4s;
   }
 .ponlo .label{ 
 display: flex;
-width: 10%;
+width: 8%;
+border-radius: 1vw;
+border: solid darkcyan 0.2vw;
 height: 85%;
-background-color: #88aff8;
+background-color: #331E0F;
+justify-content: center;
+align-items: center;
+font-size: 2vw;
+cursor: pointer;
    }
 
 

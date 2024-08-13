@@ -3,7 +3,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>editar tarea</title>
-    <link rel="stylesheet" href="{{ asset('css/styleAgregar.css?v=1') }}">
+    <link rel="stylesheet" href="{{ asset('css/styleAgregar.css?v=1.1') }}">
 </head>
 <body>
 <div class="container-modal" id="container-modal-editar">
@@ -60,9 +60,9 @@
         </div>
         <footer class="ponlo">
             <input id="files" type="file" style="display: none" multiple accept=".png, .jpg, .jpeg">
-            <label for="files" class="label">aver</label>
+            <label for="files" class="label"><i class="bi bi-card-image"></i></label>
             <input class="submit" type="submit" value="EDITAR">
-            <div class="label"></div>
+            <div class="label" style="opacity: 0"></div>
         </footer>
     </form>
     

@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>agregar tarea</title>
-    <link rel="stylesheet" href="{{ asset('css/styleAgregar.css?v=1.13') }}">
+    <link rel="stylesheet" href="{{ asset('css/styleAgregar.css?v=1.15') }}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 </head>
 <body>
 <div class="container-modal" id="container-modal">
@@ -60,9 +61,9 @@
         </div>
         <footer class="ponlo">
             <input id="files" type="file" style="display: none" multiple accept=".png, .jpg, .jpeg">
-            <label for="files" class="label">aver</label>
+            <label for="files" class="label"><i class="bi bi-card-image"></i></label>
             <input class="submit" type="submit" value="AGREGAR">
-            <div class="label"></div>
+            <div class="label" style="opacity: 0"></div>
         </footer>
     </form>
     
