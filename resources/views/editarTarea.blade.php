@@ -59,7 +59,10 @@
             </div>
         </div>
         <footer class="ponlo">
+            <input id="files" type="file" style="display: none" multiple accept=".png, .jpg, .jpeg">
+            <label for="files" class="label">aver</label>
             <input class="submit" type="submit" value="EDITAR">
+            <div class="label"></div>
         </footer>
     </form>
     

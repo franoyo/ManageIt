@@ -23,4 +23,8 @@ class tarea extends Model
     {
         return $this->belongsTo(tarea::class, 'id_user');
     }
+    public function photos()
+    {
+        return $this->hasMany(Photo::class, 'id_tarea');
+    }
 }

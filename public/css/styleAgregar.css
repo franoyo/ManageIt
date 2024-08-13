@@ -147,7 +147,7 @@ body{
   .modal .ponlo{
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: space-around !important;
     width: 100%;
     height: 15%;
 
@@ -196,4 +196,12 @@ transition: 0.4s;
     pointer-events: auto;
     z-index: 10;
   }
+.ponlo .label{ 
+display: flex;
+width: 10%;
+height: 85%;
+background-color: #88aff8;
+   }
+
+
 
