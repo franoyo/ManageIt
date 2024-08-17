@@ -59,8 +59,8 @@
             </div>
         </div>
         <footer class="ponlo">
-            <input id="files" type="file" style="display: none" multiple accept=".png, .jpg, .jpeg">
-            <label for="files" class="label"><i class="bi bi-card-image"></i></label>
+            <input id="files" type="file" style="display: none" name="images[]" multiple accept=".png, .jpg, .jpeg">
+            <label for="files" class="label" ><i class="bi bi-card-image"></i></label>
             <input class="submit" type="submit" value="EDITAR">
             <div class="label" style="opacity: 0"></div>
         </footer>

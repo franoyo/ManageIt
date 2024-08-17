@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\tarea;
+use App\Models\Photo;
 class TareasController extends Controller
 {
     public function dashboard(Request $request)
@@ -45,30 +46,54 @@ class TareasController extends Controller
         return redirect()->route('index')
             ->withSuccess('Ha cerrado sesión con éxito!');
     }
-    public function agregarTarea(Request $request){
-        $request->validate([
-            'tarea' => 'required|string|max:250',
-            'lugar' => 'required|string|max:250',
-            'notas' => 'nullable|string|max:250',
-            'fecha' => 'required|string|max:250',
-            'descripcion' => 'required|string|max:250',
-            'slider' => 'required|integer|max:110',
-        ]);
-        $userId = Auth::id();
-    
-        tarea::create([
-            'nombre_tarea' => $request->tarea,
-            'lugar' => $request->lugar,
-            'notas' => $request->notas,
-            'fecha_tarea' => $request->fecha,
-            'descripcion_tarea' => $request->descripcion,
-            'porcentaje'=> $request->slider,
-            'id_user'=> $userId,
-        ]);
-        return redirect()->back()->withSuccess("Tarea añadida correctamente!");
+    public function agregarTarea(Request $request)
+{
+    // Validar los datos del formulario
+    $request->validate([
+        'tarea' => 'required|string|max:250',
+        'lugar' => 'required|string|max:250',
+        'notas' => 'nullable|string|max:250',
+        'fecha' => 'required|string|max:250',
+        'descripcion' => 'required|string|max:250',
+        'slider' => 'required|integer|max:110',
+        'images' => 'array|max:10', // Validar que se suba un máximo de 10 imágenes si existen
+        'images.*' => 'image|mimes:jpeg,png,jpg,gif|max:2048',
 
+    ]);
 
+    // Obtener el ID del usuario autenticado
+    $userId = Auth::id();
+
+    // Crear la tarea en la base de datos y obtener la instancia creada
+    $tarea = tarea::create([
+        'nombre_tarea' => $request->tarea,
+        'lugar' => $request->lugar,
+        'notas' => $request->notas,
+        'fecha_tarea' => $request->fecha,
+        'descripcion_tarea' => $request->descripcion,
+        'porcentaje'=> $request->slider,
+        'id_user'=> $userId,
+    ]);
+
+    // Si se subieron imágenes, procesarlas
+    if ($request->hasFile('images')) {
+        foreach ($request->file('images') as $image) {
+            // Guardar la imagen en el almacenamiento
+            $path = $image->store('images', 'public'); // Almacena en storage/app/public/images
+
+            // Crear un registro para la imagen en la base de datos
+            Photo::create([
+                'id_tarea' => $tarea->id, // Relacionar la imagen con la tarea
+                'ruta' => $path, // Guardar la ruta de la imagen
+            ]);
+        }
     }
+  
+
+    // Redirigir de vuelta con un mensaje de éxito
+    return redirect()->back()->with('success', 'Tarea añadida correctamente!');
+}
+
     public function inhabilitarTarea(Request $request){
         $request->validate([
             'id' => 'required|integer|max:100',

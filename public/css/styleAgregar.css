@@ -208,6 +208,20 @@ align-items: center;
 font-size: 2vw;
 cursor: pointer;
    }
+#imagePreview{
+display: flex;
+flex-wrap: wrap;
+align-items: center;
+justify-content: space-evenly;
+background-color: gray;
+width: 23%;
+height: 50%;
+position: absolute;
+overflow: auto;
+left: 1%;
+top: 25%;
+
+}
 
 
 
