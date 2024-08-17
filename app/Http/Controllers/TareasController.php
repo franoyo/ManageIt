@@ -56,8 +56,8 @@ class TareasController extends Controller
         'fecha' => 'required|string|max:250',
         'descripcion' => 'required|string|max:250',
         'slider' => 'required|integer|max:110',
-        'images' => 'array|max:10', // Validar que se suba un máximo de 10 imágenes si existen
-        'images.*' => 'image|mimes:jpeg,png,jpg,gif|max:2048',
+        'images' => 'array|max:15', // Validar que se suba un máximo de 10 imágenes si existen
+        'images.*' => 'image|mimes:jpeg,png,jpg,gif|max:10000',
 
     ]);
 

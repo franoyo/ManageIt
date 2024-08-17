@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>agregar tarea</title>
-    <link rel="stylesheet" href="{{ asset('css/styleAgregar.css?v=1.16') }}">
+    <link rel="stylesheet" href="{{ asset('css/styleAgregar.css?v=1.161') }}">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 </head>
 <body>
@@ -88,7 +88,7 @@ function previewImages(event, querySelector) {
     if (!input.files.length) return;
 
     // Verificar si la cantidad de archivos seleccionados excede el máximo permitido
-    const maxFiles = 10;
+    const maxFiles = 15;
     if (input.files.length > maxFiles) {
         alert(`Puedes subir un máximo de ${maxFiles} imágenes.`);
         // Limpiar la selección de archivos

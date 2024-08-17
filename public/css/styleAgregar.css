@@ -213,13 +213,15 @@ display: flex;
 flex-wrap: wrap;
 align-items: center;
 justify-content: space-evenly;
-background-color: gray;
+background-color: rgb(197, 196, 196);
 width: 23%;
 height: 50%;
 position: absolute;
 overflow: auto;
 left: 1%;
 top: 25%;
+border: solid  black 0.2vw;
+border-radius: 0.4vw;
 
 }
 
