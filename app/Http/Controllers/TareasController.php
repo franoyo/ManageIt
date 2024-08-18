@@ -57,7 +57,7 @@ class TareasController extends Controller
         'descripcion' => 'required|string|max:250',
         'slider' => 'required|integer|max:110',
         'images' => 'array|max:15', // Validar que se suba un máximo de 10 imágenes si existen
-        'images.*' => 'image|mimes:jpeg,png,jpg,gif|max:10000',
+        'images.*' => 'image|mimes:jpeg,png,jpg,gif|max:17000',
 
     ]);
 
