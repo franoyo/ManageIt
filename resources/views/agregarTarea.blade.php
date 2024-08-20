@@ -97,14 +97,16 @@ function previewImages(event, querySelector) {
     }
 
     // Recorremos todos los archivos seleccionados
+  
     Array.from(input.files).forEach(file => {
         // Creamos una URL para cada archivo
+        imgPreviewContainer.classList.add("lexxji")
         const objectURL = URL.createObjectURL(file);
 
         // Creamos un elemento de imagen
         const img = document.createElement('img');
         img.src = objectURL;
-        img.style.maxWidth = '32%';
+        img.style.maxWidth = '40%';
         img.style.maxHeight = '45%';
         img.style.margin = '2%';
 

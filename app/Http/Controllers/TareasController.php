@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\tarea;
 use App\Models\Photo;
+use Illuminate\Support\Facades\Storage;
+
 class TareasController extends Controller
 {
     public function dashboard(Request $request)
@@ -84,7 +86,7 @@ class TareasController extends Controller
             // Crear un registro para la imagen en la base de datos
             Photo::create([
                 'id_tarea' => $tarea->id, // Relacionar la imagen con la tarea
-                'ruta' => $path, // Guardar la ruta de la imagen
+                'ruta' => 'storage/'.$path, // Guardar la ruta de la imagen
             ]);
         }
     }
@@ -104,17 +106,49 @@ class TareasController extends Controller
         $cambiarEstado->save();
         return redirect()->back()->withSuccess("Tarea Cancelada Correctamente!");
     }
-    public function obtenerDatosTareasAjax($id){
-$tarea=tarea::find($id);
-return response()->json([
-    'nombre_tarea' => $tarea->nombre_tarea,
-    'lugar' => $tarea->lugar,
-    'notas' => $tarea->notas,
-    'fecha_tarea' => $tarea->fecha_tarea,
-    'descripcion_tarea' => $tarea->descripcion_tarea,
-    'porcentaje'=> $tarea->porcentaje,
-]);
+    public function obtenerDatosTareasAjax($id)
+    {
+        $tarea = tarea::with('photos')->find($id); // Utiliza 'with' para cargar las fotos relacionadas
+        
+        return response()->json([
+            'nombre_tarea' => $tarea->nombre_tarea,
+            'lugar' => $tarea->lugar,
+            'notas' => $tarea->notas,
+            'fecha_tarea' => $tarea->fecha_tarea,
+            'descripcion_tarea' => $tarea->descripcion_tarea,
+            'porcentaje' => $tarea->porcentaje,
+            'photos' => $tarea->photos, // Incluye las fotos en la respuesta
+        ]);
     }
+    public function borrarImagen(Request $request) {
+        try {
+            $request->validate([
+                'id' => 'required|integer|max:10000',
+            ]);
+            $id = $request->input('id');
+    
+            $imagen = Photo::find($id);
+            
+            if ($imagen) {
+                // Eliminar el archivo del almacenamiento
+                $path = $imagen->ruta;
+                $relativePath = str_replace('storage/', '', $path);
+                if (Storage::disk('public')->exists($relativePath)) {
+                    // Eliminar el archivo del almacenamiento
+                    Storage::disk('public')->delete($relativePath);
+                    $imagen->delete();
+                    return response()->json(['success' => 'Imagen eliminada correctamente!']);
+                } else {
+                    return response()->json(['error' => 'El archivo no existe en el almacenamiento.'], 404);
+                }
+            }
+            return response()->json(['error' => 'Imagen no encontrada.'], 404);
+        } catch (\Exception $e) {
+            return response()->json(['error' => 'Error inesperado: ' . $e->getMessage()], 500);
+        }
+    }
+    
+    
     public function updateTarea(Request $request){
         $id = $request->input('id');
         $tarea = tarea::find($id);
@@ -128,5 +162,6 @@ return response()->json([
         return redirect()->back()->withSuccess("Los datos se han modificado correctamente!");
         ;
     }
+    
 
 }

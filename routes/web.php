@@ -21,7 +21,9 @@ Route::controller(TareasController::class)->group(function () {
     Route::post('/agregarTarea','agregarTarea')->name('agregarTarea');
     Route::post('/updateTarea','updateTarea')->name('updateTarea');
     Route::post('/inhabilitar','inhabilitarTarea')->name('inhabilitar');
+    Route::post('/borrarImagen','borrarImagen')->name('borrarImagen');
     Route::get('/obtenerDatosTareaAjax/{id}', 'obtenerDatosTareasAjax')->name('obtenerDatosTareasAjax');
+
 })->middleware('usuario');
 Route::controller(tareasExcelController::class)->group(function () {
     Route::get('/tareasExcel', 'exportExcelTareas')->name('tareasExcel');
