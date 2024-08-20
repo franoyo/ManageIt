@@ -150,6 +150,17 @@ class TareasController extends Controller
     
     
     public function updateTarea(Request $request){
+        $request->validate([
+            'tarea' => 'required|string|max:250',
+            'lugar' => 'required|string|max:250',
+            'notas' => 'nullable|string|max:250',
+            'fecha' => 'required|string|max:250',
+            'descripcion' => 'required|string|max:250',
+            'slider' => 'required|integer|max:110',
+            'images' => 'array|max:15', // Validar que se suba un máximo de 10 imágenes si existen
+            'images.*' => 'image|mimes:jpeg,png,jpg,gif|max:10000',
+    
+        ]);
         $id = $request->input('id');
         $tarea = tarea::find($id);
         $tarea->nombre_tarea = $request->input('tarea');
@@ -158,7 +169,21 @@ class TareasController extends Controller
         $tarea->fecha_tarea = $request->input('fecha');
         $tarea->descripcion_tarea = $request->input('descripcion');
         $tarea->porcentaje = $request->input('slider');
+        if ($request->hasFile('images')) {
+            foreach ($request->file('images') as $image) {
+                // Guardar la imagen en el almacenamiento
+                $path = $image->store('images', 'public'); // Almacena en storage/app/public/images
+    
+                // Crear un registro para la imagen en la base de datos
+                Photo::create([
+                    'id_tarea' => $tarea->id, // Relacionar la imagen con la tarea
+                    'ruta' => 'storage/'.$path, // Guardar la ruta de la imagen
+                ]);
+            }
+        }
         $tarea->save();
+
+      
         return redirect()->back()->withSuccess("Los datos se han modificado correctamente!");
         ;
     }
