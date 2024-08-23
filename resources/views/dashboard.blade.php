@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard</title>
-    <link rel="stylesheet" href="{{asset('css/styleDashboard.css?v=1.14')}}">
+    <link rel="stylesheet" href="{{asset('css/styleDashboard.css?v=1.17')}}">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <link rel="shortcut icon" href="{{asset('img/soloLogo.png')}}" />
  
@@ -141,13 +141,13 @@ function restaurarPosicionSlider() {
 
 // Evento que se dispara cuando se hace clic en los botones de desplazamiento
 izq.addEventListener('click', () => {
-    const porcentajeDesplazamiento = 99; // Porcentaje de desplazamiento deseado
+    const porcentajeDesplazamiento =99.9; // Porcentaje de desplazamiento deseado
     const desplazamiento = slider.offsetWidth * (porcentajeDesplazamiento / 100);
     slider.scrollLeft -= desplazamiento;
 });
 
 der.addEventListener('click', () => {
-    const porcentajeDesplazamiento = 99; // Porcentaje de desplazamiento deseado
+    const porcentajeDesplazamiento = 99.9; // Porcentaje de desplazamiento deseado
     const desplazamiento = slider.offsetWidth * (porcentajeDesplazamiento / 100);
     slider.scrollLeft += desplazamiento;
 });
