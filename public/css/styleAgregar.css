@@ -313,6 +313,238 @@ color: black;
   border-radius: 0.5vw;
   
   }
+  @media(orientation:portrait){
+    .container-modal .modal{
+      display: flex;
+      flex-direction: column;
+      width: 95%;
+      height: 60%;
+      background-color: #0F2533;
+      color: white;
+      border-radius: 1vw;
+      border: solid 0.2vw #A7A8A8;
+  }
+  .modal .container-title{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 15%;
+    font-size: 2.7vh;
+    font-weight: 600;
+   
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+.yet .subtitle{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  width: 40%;
+  height: 100%;
+  font-weight: 600;
+  font-size: 1.1vh;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+.yet .put-input{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  width: 60%;
+  height: 100%;
+  font-size: 1.2vh;
+  overflow: hidden;
+}
+.put-input .inps{
+  display: flex;
+  width: 70%;
+  height:30%;
+  border-radius: 0.4vw;
+  font-size: 1.35vh;
+  border: solid #A7A8A8 0.2vw;
+  background-color: #dfd9f7;
+}
+.put-input .area{
+  display: flex;
+  width: 70%;
+  height: 70%;
+  font-size: 1.35vh;
+  background-color: #dfd9f7;
+  border-radius: 0.4vw;
+  border: solid #A7A8A8 0.2vw;
+}
+.ponlo .submit{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-size: 1.6vh;
+  width: 25%;
+  height:60%;
+  border-radius:0.6vw;
+  cursor: pointer;
+  background-color: #532853;
+  color: white;
+  transition: 0.4s;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  
+    }
+    .ponlo .label{ 
+      display: flex;
+      width: 16%;
+      border-radius: 1vw;
+      border: solid darkcyan 0.2vw;
+      height: 60%;
+      background-color: #331E0F;
+      justify-content: center;
+      align-items: center;
+      font-size: 4vh;
+      cursor: pointer;
+         }
+         #mamañema{
+          display: flex;
+          width: 50%;
+          height: 50%;
+          align-items: center;
+          justify-content: center;
+          text-align: center;
+          font-size: 4vh;
+          border: solid 0.2vw #A7A8A8;
+          border-radius: 0.3vw;
+          color: white;
+          background-color: #10332E;
+          cursor: pointer;
+          transition: 0.4s;
+          
+            }
+            #slider::-webkit-slider-thumb {
+              -webkit-appearance: none;  /* Elimina el estilo predeterminado en navegadores Webkit */
+              appearance: none;  /* Elimina el estilo predeterminado */
+              width:14%;  /* Ancho del "thumb" */
+              height:1.3vh;  /* Altura del "thumb" */
+              background: #f10742;  /* Color del "thumb" */
+              cursor: pointer;  /* Cambia el cursor al pasar sobre el "thumb" */
+              border-radius: 50%;  /* Redondea el "thumb" */
+            }
+            
+#slider2::-webkit-slider-thumb {
+  -webkit-appearance: none;  /* Elimina el estilo predeterminado en navegadores Webkit */
+  appearance: none;  /* Elimina el estilo predeterminado */
+  width:14%;  /* Ancho del "thumb" */
+  height:1.3vh;  /* Altura del "thumb" */
+  background: #f10742;  /* Color del "thumb" */
+  cursor: pointer;  /* Cambia el cursor al pasar sobre el "thumb" */
+  border-radius: 50%;  /* Redondea el "thumb" */
+}
+#imagePreview{
+  display: flex;
+  flex-direction: column;
+  opacity: 0;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-evenly;
+  background-color: #DFD9F7;
+  width: 95%;
+  height: 18.5%;
+  position: absolute;
+  overflow: auto;
+  left: 2.5%;
+  top: 80.5%;
+  border: solid  black 0.2vw;
+  border-radius: 0.4vw;
+  transition: 0.4s;
+  
+  }
+  #imagePreviewEdit{
+    display: flex;
+    flex-direction: column;
+    opacity: 1;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-evenly;
+    background-color: #DFD9F7;
+    width: 95%;
+    height: 12%;
+    position: absolute;
+    overflow: auto;
+    left: 2.5%;
+    top: 4.2%;
+    border: solid  black 0.2vw;
+    border-radius: 0.4vw;
+    transition: 0.4s;
+    
+    }
+  #title-edit{
+  display: flex;
+  position: absolute;
+  justify-content: center;
+  align-items: center;
+  width: 95%;
+  height: 3%;
+  left: 2.5%;
+  top:0.5%;
+  background-color: #9385c9;
+  font-size: 1.6vh;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-weight: 700;
+  color: black;
+  
+  }
+  #precaution{
+    display: flex;
+    position: absolute;
+    justify-content: center;
+    align-items: center;
+    width: 95%;
+    height: 3%;
+    left: 2.5%;
+    top: 16.7%;
+    background-color: #9385c9;
+    font-size: 1.6vh;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-weight: 700;
+    color: black;
+  
+  }
+  #imagePreviewEditVer{
+    display: flex;
+    flex-direction: column;
+    opacity: 1;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-evenly;
+    background-color: #DFD9F7;
+    width: 95%;
+    height: 12%;
+    position: absolute;
+    overflow: auto;
+    right: 2.5%;
+    top: 85%;
+    border: solid  black 0.2vw;
+    border-radius: 0.4vw;
+    transition: 0.4s;
+  }
+  #title-editAdd{
+    display: flex;
+    position: absolute;
+    justify-content: center;
+    align-items: center;
+    width: 95%;
+    height: 3%;
+    right: 2.5%;
+    top: 81%;
+    background-color: #9385c9;
+    font-size: 1.6vh;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-weight: 700;
+    color: black;
+    border-radius: 0.5vw;
+    
+    }
+
+    
+  }
 
 
 

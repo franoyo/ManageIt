@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>editar tarea</title>
-    <link rel="stylesheet" href="{{ asset('css/styleAgregar.css?v=1.24') }}">
+    <link rel="stylesheet" href="{{ asset('css/styleAgregar.css?v=1.2') }}">
 </head>
 <body>
 <div class="container-modal" id="container-modal-editar">

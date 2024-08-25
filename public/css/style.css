@@ -167,6 +167,7 @@ justify-content: space-between;
             justify-content: end;
             align-items: center;
             flex-direction: column;
+            text-align: center;
             color: white;
             font-size: 1.6vh;
             width: 100%;

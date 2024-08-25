@@ -96,4 +96,58 @@ body{
         pointer-events: auto;
         z-index: 5;
     }
+    @media(orientation:portrait){
+        .main-container8 .alerta{
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            width: 75%;
+            height: 60%;
+            background-color: #B6CCE1;
+            color: black;
+            overflow: hidden;
+            border-radius: 0.5vw;
+            border: solid 0.2vw white;
+            box-shadow: 2.3vw 2vw 0.8vw -0.5vw rgba(0,0,0,0.75);
+        }
+
+        .put-img .image{
+            display: flex;
+            width: 45%;
+            height: 58%;
+            animation: grande 4s ease-in-out infinite;  
+            
+            }
+            .alerta .put-text{
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                text-align: center;
+                width: 80%;
+                height: 35%;
+               font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+               font-weight: 600;
+                font-size: 2vh;
+            }
+            #ñe{
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                width: 30%;
+                height: 80%;
+                background-color: #2D3237;
+                color: white;
+                font-size: 3.2vh;
+                border-radius: 0.3vw;
+                cursor: pointer;
+                transition: 0.5s;
+                }
+
+
+
+
+
+
+    }
 

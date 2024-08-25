@@ -28,8 +28,8 @@ class TareasController extends Controller
     public function authenticate(Request $request)
     {
         $credentials = $request->validate([
-            'email' => 'required|email',
-            'password' => 'required'
+            'email' => 'required|email|string|min:3',
+            'password' => 'required|min:8'
         ]); // Intentar autenticar el usuario desde la tabla "users"
     if (Auth::attempt($credentials)) {
             auth()->user();
