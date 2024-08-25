@@ -16,11 +16,9 @@ class usuario
      */
     public function handle(Request $request, Closure $next): Response
     {
-        if (Auth::user()) {
+        if (Auth::check()) {
             return $next($request);
-            
-            
         }
-        return redirect()->route('index')->withSuccess('Su sesion como cliente ha expirado');
+        return redirect()->route('index')->withSuccess('Su sesion ha expirado');
     }
 }

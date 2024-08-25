@@ -93,7 +93,7 @@ icono.classList.add("animation-vizajoso")
     </div>
 </div>
 <nav class="options">
-    <a href class="ñema"><i class="bi bi-eye-fill"></i></a>
+    <a class="ñema" href="{{route('ver', ['id' => $tarea->id])}}"><i class="bi bi-eye-fill"></i></a>
     <a class="ñema edit-button" data-id="{{$tarea->id}}" href=""><i class="bi bi-pencil-square"></i></a>
     <a class="delete-button ñema" data-id="{{$tarea->id}}" data-tarea="{{$tarea->nombre_tarea}}"><i class="bi bi-trash-fill "></i></a>
 </nav>

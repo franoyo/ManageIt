@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Storage;
 
 class TareasController extends Controller
 {
+    
     public function dashboard(Request $request)
     {
         if (Auth::check()) { 
@@ -187,6 +188,16 @@ class TareasController extends Controller
         return redirect()->back()->withSuccess("Los datos se han modificado correctamente!");
         ;
     }
+    public function verTarea($id){
+        $user = auth()->user();
+        // Busca la tarea por ID y asegura que pertenece al usuario autenticado
+        $tarea = $user->tareas()->with('photos')->where('id', $id)->first();
+        if (!$tarea) {
+            return redirect()->route("dashboard")->withSuccess("La tarea no existe");
+        }  
+        return view('seeTarea',['tarea' => $tarea]);
+    }
+    
     
 
 }
