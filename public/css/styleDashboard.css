@@ -396,6 +396,7 @@ background-position: 0 50%;
     top: 3.6%;
     left: 1.9%;
     transition: 0.5s;
+   opacity: 0;
     
     
 }
@@ -424,13 +425,13 @@ background-position: 0 50%;
 
 }
 @keyframes replicant {
-0%{
-
+1%{
+opacity: 1;
 }
 
 20%{
     transform: translateX(58vw) rotateZ(360deg) scale(1.8);
-
+opacity: 1;
 }
 25%{
     transform: translateX(58vw) rotateZ(360deg) scale(1.8); 
@@ -449,6 +450,12 @@ background-position: 0 50%;
 } 
 80%{
     transform: translateX(58vw) rotateZ(360deg) scale(1.8);
+}
+97%{
+    opacity: 1;
+}
+100%{
+    opacity: 0;
 }
 
 }
@@ -881,6 +888,92 @@ background-color: rgba(255, 0, 0, 0.4);
                         bottom: 1%;
                         cursor: pointer;
                         }
+                        @keyframes replicant {
+                            1%{
+                            opacity: 1;
+                            }
+                            
+                            20%{
+                                transform: translateX(65vw) rotateZ(360deg) scale(1.8);
+                            opacity: 1;
+                            }
+                            25%{
+                                transform: translateX(65vw) rotateZ(360deg) scale(1.8); 
+                            }
+                            30%{
+                                
+                            }
+                            35%{
+                                transform: translateX(65vw) rotateZ(360deg) scale(1.8);
+                            }
+                            
+                            50%{
+                            
+                                transform: translateX(65vw) rotateZ(360deg) scale(1.8);
+                            
+                            } 
+                            80%{
+                                transform: translateX(65vw) rotateZ(360deg) scale(1.8);
+                            }
+                            97%{
+                                opacity: 1;
+                            }
+                            100%{
+                                opacity: 0;
+                            }
+                            
+                            }
+                            @keyframes content {
+                                0%{
+                                 width: 0%;
+                                }
+                                18%{
+                                 width: 0%;
+                                 left: 64vw;
+                                 top: 5.5%;
+                                 font-size: 1.4vh;
+                                }
+                                21%{
+                                 width: 35%;
+                                 height: 5%;
+                                 left: 28.95vw;
+                                 top: 5.5%;
+                                 font-size: 1.4vh;
+                                }
+                                40% {
+                                    width: 35%;
+                                    height: 5%;
+                                    top: 5.5%;
+                                 left: 28.95vw;
+                                 font-size: 1.4vh;
+                                }
+                             
+                                60%{
+                                    width: 35%;
+                                    height: 5%;
+                                    top: 5.5%;
+                                 left: 28.95vw;
+                                 font-size: 1.4vh;
+                                }
+                                75%{
+                                    width: 35%;
+                                    height: 5%;
+                                    top: 5.5%;
+                                 left: 28.95vw;
+                                 font-size: 1.4vh;
+                                }
+                                79%{
+                                 width: 0%;
+                                 left: 64vw;
+                                 font-size: 1.4vh;
+                                 top: 5.5%;
+                                }
+                                90%{
+                                 font-size:0vw;
+                               
+                                }
+                             }
+                       
                     
 
 }
