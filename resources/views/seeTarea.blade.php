@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="{{asset('css/styleSee.css')}}">
 </head>
 <body>
+    @include("galeria")
     <div class="main-container">
         <nav class="future-nav">
             <img class="logo" src="{{asset('img/soloLogo.png')}}" alt="">
@@ -46,8 +47,15 @@
                     {{$tarea->descripcion_tarea}}
                   </div>
                   <div class="container-images">
+                    @php
+             $count = 0; // Inicializa el contador
+                    @endphp
                     @forelse ($tarea->photos as $photo)
-                    <img src="{{ asset($photo->ruta) }}" class="image" alt="Foto de la tarea">
+                    @php
+                    $count++; // Incrementa el contador en cada iteración
+                @endphp
+                    <img src="{{ asset($photo->ruta) }}" data-id="{{$count}}" class="image" alt="Foto de la tarea">
+
                 @empty
                     NO HAY IMAGENES PARA MOSTRAR
                 @endforelse
@@ -70,7 +78,31 @@
             window.location.href = url;
 
         }
- 
+    
+
+// Selecciona todas las imágenes con la clase 'clickable-image'
+const images = document.querySelectorAll('.image');
+const tarjetImage=document.getElementById('liza');
+const galeria=document.getElementById('galeria');
+
+// Agrega un evento de clic a cada imagen
+images.forEach((image) => {
+image.addEventListener('click', () => {
+// Recupera el atributo 'src' de la imagen clickeada
+const src = image.getAttribute('src');
+const dataId=parseInt(image.getAttribute('data-id'))
+galeria.classList.add("velo")
+tarjetImage.setAttribute('src', src);
+tarjetImage.setAttribute('data-id', dataId);
+
+});
+});
+function cerrar(){ 
+
+galeria.classList.remove("velo")
+
+        
+}
     </script>
 </body>
 </html>
