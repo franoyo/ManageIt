@@ -82,7 +82,7 @@ class TareasController extends Controller
     if ($request->hasFile('images')) {
         foreach ($request->file('images') as $image) {
             // Guardar la imagen en el almacenamiento
-            $path = $image->store('public'); // Almacena en storage/app/public/images
+            $path = $image->store('images', 'public'); // Almacena en storage/app/public/images
 
             // Crear un registro para la imagen en la base de datos
             Photo::create([
@@ -173,7 +173,7 @@ class TareasController extends Controller
         if ($request->hasFile('images')) {
             foreach ($request->file('images') as $image) {
                 // Guardar la imagen en el almacenamiento
-                $path = $image->store('public'); // Almacena en storage/app/public/images
+                $path = $image->store('images', 'public'); // Almacena en storage/app/public/images
     
                 // Crear un registro para la imagen en la base de datos
                 Photo::create([
