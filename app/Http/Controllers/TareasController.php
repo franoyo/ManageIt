@@ -96,7 +96,6 @@ class TareasController extends Controller
     // Redirigir de vuelta con un mensaje de éxito
     return redirect()->back()->with('success', 'Tarea añadida correctamente!');
 }
-
     public function inhabilitarTarea(Request $request){
         $request->validate([
             'id' => 'required|integer|max:100',
@@ -198,6 +197,28 @@ class TareasController extends Controller
         return view('seeTarea',['tarea' => $tarea]);
     }
     
+    public function filtroCrudTareas(Request $request)
+    {
+        // Obtener el término de búsqueda desde el formulario
+        $query = $request->input('buscar');
+        
+        // Realizar la consulta a la base de datos con múltiples condiciones
+        $tarea = tarea::where(function ($subQuery) use ($query) {
+                        $subQuery->where('nombre_tarea', 'LIKE', "%$query%")
+                                 ->orWhere('fecha_tarea', 'LIKE', "%$query%")
+                                 ->orWhere('lugar', '=', $query)
+                                 ->orWhere('porcentaje', '=', $query);
+                    })
+                    ->where('estado', 1)
+                    ->where('id_user', Auth::id()) 
+                    ->get();
+    
+        // Guardar los resultados en la sesión
+        session()->put('resultados_busqueda', $tarea);
+    
+        // Retornar la vista con los resultados de búsqueda
+        return view('dashboardFiltro', ['tareas' => $tarea]);
+    }
     
 
 }

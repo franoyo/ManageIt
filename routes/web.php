@@ -23,6 +23,7 @@ Route::middleware('usuario')->controller(TareasController::class)->group(functio
     Route::post('/borrarImagen','borrarImagen')->name('borrarImagen');
     Route::get('/obtenerDatosTareaAjax/{id}', 'obtenerDatosTareasAjax')->name('obtenerDatosTareasAjax');
     Route::get('/ver/{id}','verTarea')->name('ver');
+    Route::get('/buscarTarea', 'filtroCrudTareas')->name('buscarTarea');
 
 });
 Route::controller(TareasController::class)->group(function () {
