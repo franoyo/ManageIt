@@ -94,7 +94,7 @@ class TareasController extends Controller
   
 
     // Redirigir de vuelta con un mensaje de éxito
-    return redirect()->back()->with('success', 'Tarea añadida correctamente!');
+    return redirect()->route('dashboard')->with('success', 'Tarea añadida correctamente!');
 }
     public function inhabilitarTarea(Request $request){
         $request->validate([
