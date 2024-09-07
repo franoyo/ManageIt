@@ -214,11 +214,22 @@ class TareasController extends Controller
                     ->get();
     
         // Guardar los resultados en la sesión
+        session()->put('url_busqueda', $request->fullUrl());
         session()->put('resultados_busqueda', $tarea);
     
         // Retornar la vista con los resultados de búsqueda
         return view('dashboardFiltro', ['tareas' => $tarea]);
     }
+    public function back()
+{
+    // Si la sesión tiene la URL de búsqueda, redirigir a esa URL
+    if (session()->has('url_busqueda')) {
+        return redirect(session('url_busqueda'));
+    }
+
+    // Si no hay URL de búsqueda en la sesión, redirigir al dashboard
+    return redirect()->route('dashboard'); // Asumiendo que tienes una ruta llamada 'dashboard'
+}
     
 
 }

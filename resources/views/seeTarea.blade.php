@@ -14,7 +14,7 @@
         </nav>
         <div class="containerFlecha" onclick="redirigir()">
             <div class="arrow-back"></div>
-            <a href="{{route('dashboard')}}" class="corpo">VOLVER</a>
+            <a href="{{route('back')}}" class="corpo">VOLVER</a>
         </div>
 
         <main  class="carta">
