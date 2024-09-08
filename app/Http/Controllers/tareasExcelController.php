@@ -14,8 +14,10 @@ class tareasExcelController extends Controller
     public function exportExcelTareas() 
     {
     if (session()->has('resultados_busqueda')) {
-        // Utiliza los resultados de la búsqueda almacenados en la variable de sesión
-        $tareas = session('resultados_busqueda');
+        $tareas = collect(session('resultados_busqueda'))->map(function ($tarea) {
+            // Excluye los campos 'id_user' y 'estado'
+            return collect($tarea)->except(['id_user', 'estado']);
+        });
     } else {
         // Si no hay resultados en la variable de sesión, obtener todos los usuarios
         $tareas = tarea::select('id', 'nombre_tarea', 'fecha_tarea','lugar','descripcion_tarea','notas','porcentaje','created_at','updated_at')

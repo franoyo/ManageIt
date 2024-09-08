@@ -25,6 +25,7 @@ Route::middleware('usuario')->controller(TareasController::class)->group(functio
     Route::get('/ver/{id}','verTarea')->name('ver');
     Route::get('/buscarTarea', 'filtroCrudTareas')->name('buscarTarea');
     Route::get('/back', 'back')->name('back');
+    Route::get('/test', 'test')->name('test');
 
 });
 Route::controller(TareasController::class)->group(function () {

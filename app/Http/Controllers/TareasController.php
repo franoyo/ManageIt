@@ -82,18 +82,19 @@ class TareasController extends Controller
     if ($request->hasFile('images')) {
         foreach ($request->file('images') as $image) {
             // Guardar la imagen en el almacenamiento
-            $path = $image->store('images', 'public'); // Almacena en storage/app/public/images
-
+            $path = $image->store('images', 's3');
+            $url = Storage::disk('s3')->url($path); // Almacena en storage/app/public/images
             // Crear un registro para la imagen en la base de datos
             Photo::create([
                 'id_tarea' => $tarea->id, // Relacionar la imagen con la tarea
-                'ruta' => 'storage/'.$path, // Guardar la ruta de la imagen
+                'ruta' =>$url, // Guardar la ruta de la imagen
             ]);
         }
     }
   
 
     // Redirigir de vuelta con un mensaje de éxito
+    session()->forget('url_busqueda');
     return redirect()->route('dashboard')->with('success', 'Tarea añadida correctamente!');
 }
     public function inhabilitarTarea(Request $request){
@@ -128,14 +129,13 @@ class TareasController extends Controller
             $id = $request->input('id');
     
             $imagen = Photo::find($id);
-            
+       
             if ($imagen) {
-                // Eliminar el archivo del almacenamiento
-                $path = $imagen->ruta;
-                $relativePath = str_replace('storage/', '', $path);
-                if (Storage::disk('public')->exists($relativePath)) {
+                $fullPath = $imagen->ruta;
+                $path = parse_url($fullPath, PHP_URL_PATH);
+                if (Storage::disk('s3')->exists($path)) {
                     // Eliminar el archivo del almacenamiento
-                    Storage::disk('public')->delete($relativePath);
+                    Storage::disk('s3')->delete($path);
                     $imagen->delete();
                     return response()->json(['success' => 'Imagen eliminada correctamente!']);
                 } else {
@@ -172,12 +172,13 @@ class TareasController extends Controller
         if ($request->hasFile('images')) {
             foreach ($request->file('images') as $image) {
                 // Guardar la imagen en el almacenamiento
-                $path = $image->store('images', 'public'); // Almacena en storage/app/public/images
+                $path = $image->store('images', 's3');
+                $url = Storage::disk('s3')->url($path);
     
                 // Crear un registro para la imagen en la base de datos
                 Photo::create([
                     'id_tarea' => $tarea->id, // Relacionar la imagen con la tarea
-                    'ruta' => 'storage/'.$path, // Guardar la ruta de la imagen
+                    'ruta' =>$url, // Guardar la ruta de la imagen
                 ]);
             }
         }
@@ -206,9 +207,8 @@ class TareasController extends Controller
         $tarea = tarea::where(function ($subQuery) use ($query) {
                         $subQuery->where('nombre_tarea', 'LIKE', "%$query%")
                                  ->orWhere('fecha_tarea', 'LIKE', "%$query%")
-                                 ->orWhere('lugar', '=', $query)
-                                 ->orWhere('porcentaje', '=', $query);
-                    })
+                                 ->orWhere('lugar','LIKE', $query)
+                                 ->orWhere('porcentaje', '=', $query);})
                     ->where('estado', 1)
                     ->where('id_user', Auth::id()) 
                     ->get();
@@ -216,6 +216,7 @@ class TareasController extends Controller
         // Guardar los resultados en la sesión
         session()->put('url_busqueda', $request->fullUrl());
         session()->put('resultados_busqueda', $tarea);
+
     
         // Retornar la vista con los resultados de búsqueda
         return view('dashboardFiltro', ['tareas' => $tarea]);
@@ -228,7 +229,12 @@ class TareasController extends Controller
     }
 
     // Si no hay URL de búsqueda en la sesión, redirigir al dashboard
+    session()->forget('resultados_busqueda');
     return redirect()->route('dashboard'); // Asumiendo que tienes una ruta llamada 'dashboard'
+}
+public function test()
+{
+    Storage::disk('s3')->delete('images/SN3HwMOMwIa4125NsQ87ufL1wZq2xo2o81xCvK6j.jpg');
 }
     
 

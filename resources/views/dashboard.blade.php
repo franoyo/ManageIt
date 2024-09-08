@@ -10,6 +10,7 @@
  
 </head>
 <body>
+    
     @include('alertaEliminar')
     @include('agregarTarea')
     @include('editarTarea')
@@ -46,6 +47,7 @@ icono.classList.add("animation-vizajoso")
             </form>
         </div>
     </header>
+    <a href="{{route('test')}}">prueba</a>
     <main class="tareas-container">
         <div class="linea"></div>
         <div class="container-cards">
@@ -220,7 +222,7 @@ for (var i = 0; i < infoButtons.length; i++) {
 
                     data.photos.forEach(photos => {
                         var imgElement = document.createElement('img');
-                        imgElement.src = `{{asset('${photos.ruta}')}}`;
+                        imgElement.src = photos.ruta;
                         imgElement.alt = 'Foto de la tarea';
                         imgElement.dataset.id = photos.id;
                         imgElement.classList.add('photo-thumbnail'); // Clase para estilo
