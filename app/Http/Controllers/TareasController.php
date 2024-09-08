@@ -207,7 +207,7 @@ class TareasController extends Controller
         $tarea = tarea::where(function ($subQuery) use ($query) {
                         $subQuery->where('nombre_tarea', 'LIKE', "%$query%")
                                  ->orWhere('fecha_tarea', 'LIKE', "%$query%")
-                                 ->orWhere('lugar','LIKE', $query)
+                                 ->orWhere('lugar','LIKE', "%$query%")
                                  ->orWhere('porcentaje', '=', $query);})
                     ->where('estado', 1)
                     ->where('id_user', Auth::id()) 
