@@ -47,7 +47,6 @@ icono.classList.add("animation-vizajoso")
             </form>
         </div>
     </header>
-    <a href="{{route('test')}}">prueba</a>
     <main class="tareas-container">
         <div class="linea"></div>
         <div class="container-cards">
