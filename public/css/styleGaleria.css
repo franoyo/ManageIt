@@ -30,7 +30,7 @@ body{
     min-width: 40%;
     max-width:100%;
     min-height: 40%;
-    max-height:100%;
+    max-height:90%;
 }
 .principal-container .put-btns{
 display: flex;
