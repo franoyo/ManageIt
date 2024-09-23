@@ -103,7 +103,7 @@ class TareasController extends Controller
         ]);
         $id = $request->input('id');
         $cambiarEstado=tarea::findOrfail($id);
-        $cambiarEstado->estado=0;
+        $cambiarEstado->estado=false;
         $cambiarEstado->save();
         return redirect()->back()->withSuccess("Tarea Cancelada Correctamente!");
     }
