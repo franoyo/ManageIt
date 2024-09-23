@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard</title>
-    <link rel="stylesheet" href="{{asset('css/styleDashboard.css?v=1.21')}}">
+    <link rel="stylesheet" href="{{asset('css/styleDashboard.css?v=1.24')}}">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <link rel="shortcut icon" href="{{asset('img/soloLogo.png')}}" />
  
@@ -48,7 +48,20 @@ icono.classList.add("animation-vizajoso")
         </div>
     </header>
     <main class="tareas-container">
+       
         <div class="linea"></div>
+        <div id="menu">
+            <div class="section">
+                <img class="logs" src="{{ asset('img/logo_manageIt1-removebg-preview.png') }}" alt="">
+            </div>
+            <nav class="container-btns">
+                <a class="nav" href="">Mis cronogramas</a>
+                <a class="nav" href="">Crear cronograma</a>
+                <a class="nav" href="">Historial de tareas</a>
+            </nav>
+            <div class="section"></div>
+        </div>
+        <div id="desplegar-menu" onclick="abrirMenu()"></div>
         <div class="container-cards">
             <nav class="bar-options">
                 <div class="container-reportes">
@@ -260,6 +273,21 @@ for (var i = 0; i < infoButtons.length; i++) {
 var editModal=document.getElementById("container-modal-editar")
   function display(){
     editModal.classList.remove("deploy")
+
+}
+var acumulador=0
+function abrirMenu(){
+const menu=document.getElementById("menu")
+const boton=document.getElementById("desplegar-menu")
+acumulador=acumulador+1;
+if (acumulador%2==1) {
+    menu.classList.add("deslumbro")
+    boton.classList.add("mover")
+    }else{
+        menu.classList.remove("deslumbro")
+        boton.classList.remove("mover")
+    }  
+
 
 }
     </script>
