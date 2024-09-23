@@ -232,10 +232,7 @@ class TareasController extends Controller
     session()->forget('resultados_busqueda');
     return redirect()->route('dashboard'); // Asumiendo que tienes una ruta llamada 'dashboard'
 }
-public function test()
-{
-    Storage::disk('s3')->delete('images/SN3HwMOMwIa4125NsQ87ufL1wZq2xo2o81xCvK6j.jpg');
-}
+
     
 
 }
