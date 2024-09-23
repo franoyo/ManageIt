@@ -99,7 +99,7 @@ class TareasController extends Controller
 }
     public function inhabilitarTarea(Request $request){
         $request->validate([
-            'id' => 'required|integer|max:100',
+            'id' => 'required|integer',
         ]);
         $id = $request->input('id');
         $cambiarEstado=tarea::findOrfail($id);

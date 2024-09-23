@@ -15,7 +15,7 @@
                 <i id="icon" class="bi bi-x-diamond-fill"></i>
                 
                 Esta seguro de eliminar la tarea:
-                <input id="inp" name="id" type="text" readonly>
+                <input id="inp" name="id" type="hidden" readonly>
                 <input id="tarea" type="text" readonly>
                 
             </div>
