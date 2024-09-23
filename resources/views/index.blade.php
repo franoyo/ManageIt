@@ -42,9 +42,9 @@ const desplieguez=document.getElementById("main-container8");
         </div>
         <div class="division"></div>
         <div class="vivi2">
-            <img class="slide" width="100%" height="100%" src="" alt="auto">
-            <img class="slide" width="100%" height="100%"  src="" alt="auto">
-            <img class="slide" width="100%" height="100%" src="" alt="auto">
+            <img class="slide" width="100%" height="100%" src="{{asset('img/previewImage1.png')}}" alt="auto">
+            <img class="slide" width="100%" height="100%"  src="{{asset('img/preview2.png')}}" alt="auto">
+            <img class="slide" width="100%" height="100%" src="{{asset('img/preview3.png')}}" alt="auto">
         </div>
     </main>
     <footer class="footer-container">
