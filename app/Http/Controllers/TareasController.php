@@ -55,7 +55,7 @@ class TareasController extends Controller
     $request->validate([
         'tarea' => 'required|string|max:250',
         'lugar' => 'required|string|max:250',
-        'notas' => 'nullable|string|max:250',
+        'notas' => 'nullable|string|max:700',
         'fecha' => 'required|string|max:250',
         'descripcion' => 'required|string|max:250',
         'slider' => 'required|integer|max:110',

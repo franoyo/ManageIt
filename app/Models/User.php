@@ -49,4 +49,7 @@ class User extends Authenticatable
     {
         return $this->hasMany(tarea::class, 'id_user');
     }
+    public function hojas(){
+        return $this->hasMany(hoja::class, 'id_user');
+    }
 }

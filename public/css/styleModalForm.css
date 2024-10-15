@@ -1,0 +1,298 @@
+body{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+#two{
+    border-top: solid black 0.18vw;
+    border-bottom: solid black 0.18vw;
+    
+    
+}
+#tx{
+    border: solid black 0.18vw;
+}
+#inp{
+    display: flex;
+    text-align: center;
+    width: 70%;
+    height: 40%;
+    font-size: 2.4vw;
+    font-weight: 600;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+.modal-container{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100vh;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(128, 128, 128, 0.3);
+    overflow: hidden;
+    position: fixed;
+    z-index: 4;
+    opacity: 0;
+    pointer-events: none;
+    transition: 0.5s;
+}
+.modal-container .main-container{
+    display: flex;
+    flex-direction: column;
+    width: 75%;
+    height: 90%;
+border: solid 0.2vw black;
+    overflow: hidden;
+    background-color: lightgrey;
+}
+.main-container .cabecera-container{
+    display: flex;
+    width: 100%;
+    height: 15%;
+
+    border-bottom: solid 0.2vw black;
+}
+.cabecera-container .sub-text{
+    display: flex;
+    width: 15%;
+    height: 100%;
+    flex-direction: column;
+
+}
+.sub-text .div{
+    display: flex;
+    width: 100%;
+    height: 33.3333333%;
+
+
+    font-size: 1vw;
+    font-weight: 600;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+.cabecera-container .text{
+    display: flex;
+    justify-content: center;
+align-items: center;
+    width: 70%;
+    height: 100%;
+
+}
+.main-container .info-container{
+    display:flex;
+    width: 100%;
+    height: 85%;
+
+}
+.info-container .container-inf{
+    display: flex;
+    flex-direction: column;
+    width: 70%;
+    height: 100%;
+
+    border-right: solid 0.2vw black;
+}
+
+.container-inf .container-subtitles{
+    display: flex;
+    width: 100%;
+    height: 5.15%;
+
+}
+.container-inf .container-subtitle{
+    display: flex;
+    width: 99.7%;
+    height: 6.1%;
+
+    border-bottom: solid black 0.2vw;
+    border-left: solid black 0.2vw;
+
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font-size: 1.2VW;
+    font-weight: 600;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+.container-inf .container-notas{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 35.5%;
+    border-bottom:black 0.2vw solid;
+}
+.container-inf .container-interaction{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 100%;
+    height: 24.5%;
+   
+}
+.container-interaction .bs{
+    display: flex;
+    width: 15%;
+    height: 25%;
+    text-align: center;
+    font-size: 1vw;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-weight: 600;
+    cursor: pointer;
+    border-radius: 0.4vw;
+    background-color: #343A40;
+    color: white;
+    transition: 0.5s;
+}
+#date{
+    width: 50%;
+    height: 70%;
+    font-size:0.75vw;
+    text-align: center;
+}
+.bs:hover{
+    transform: scale(1.4);
+}
+#notas{
+    display: flex;
+    width: 80%;
+    height: 80%;
+    border-radius: 0.8vw;
+    border: solid black 0.2vw;
+    font-size: 1.15vw;
+font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+
+}
+.container-inf .container-inputs{
+    display: flex;
+    width: 100%;
+    height: 11.3%;
+
+    border-top:solid black 0.2vw ;
+    border-bottom:solid black 0.2vw ;
+    
+
+}.container-inputs .mid{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50%;
+    height: 100%;
+    border-left: solid 0.2vw black;
+}
+.mid .inps{
+display: flex;
+width: 80%;
+height: 50%;
+border-radius: 0.6vw;
+border:solid 0.2vw black;
+font-size: 1.15vw;
+font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+.container-subtitles .mitad{
+    display: flex;
+    width: 50%;
+    height: 100%;
+    border-left: 0.2vw solid black;
+    border-bottom:0.2vw solid black ;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-size: 1.2VW;
+    font-weight: 600;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+.info-container .correction-container{
+    display: flex;
+    width: 30%;
+    height: 100%;
+    flex-direction: column;
+}
+.correction-container .titulos{
+    display: flex;
+    width: 100%;
+    height: 5.2%;
+    border-bottom: 0.2vw solid black;
+}
+.titulos .mitad{
+    display: flex;
+    width: 50%;
+    height: 100%;
+    border-right: solid black 0.2vw;
+    border-top:black solid 0.1vw;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: 1.4vw;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font-weight: 550;
+}
+.correction-container .put-info-container{
+    display: flex;
+    width: 100%;
+    height: 95%;
+}
+.put-info-container .partelo{
+    display: flex;
+    width: 50%;
+    height: 100%;
+    border-right: solid black 0.2vw;
+    flex-direction: column;
+}
+.partelo .put-input{
+    display: flex;
+    position: relative;
+    width: 100%;
+    height: 12.5%;
+    border-bottom: solid 0.2vw black;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-direction: column;
+    opacity: 1;
+}
+.partelo .button{
+    display: flex;
+    top: 20%; /* Alinea verticalmente en el centro del contenedor */
+    left: 40%;
+    width: 20%;
+    height: 60%;
+    position: absolute;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    font-size: 3vw;
+    transition: 0.5s;
+
+}
+.put-input .idp{
+    text-align: center;
+    transition: 0.5s;
+    width: 60%;
+    height: 25%;
+    font-size: 1vw;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+.put-input .inf{
+    width: 90%;
+    transition: 0.5s;
+    height: 60%;
+    font-size: 0.85vw;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+
+}
+.hidden {
+    opacity: 0;
+    transition: opacity 0.5s ease; /* Transición suave al cambiar la opacidad */
+    pointer-events: none; /* Para evitar la interacción con los inputs mientras estén ocultos */
+}
+
+.visible {
+    opacity: 1;
+    pointer-events: all; /* Activa la interacción cuando se muestran */
+}
+
+
+

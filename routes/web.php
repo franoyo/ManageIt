@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\LoginRegisterController;
 use App\Http\Controllers\TareasController;
 use App\Http\Controllers\tareasExcelController;
+use App\Http\Controllers\hojasDeVidaController;
 
 
 Route::get('/', function () {
@@ -33,6 +34,12 @@ Route::controller(TareasController::class)->group(function () {
 });
 Route::middleware('usuario')->controller(tareasExcelController::class)->group(function () {
     Route::get('/tareasExcel', 'exportExcelTareas')->name('tareasExcel');
+});
+Route::middleware('usuario')->controller(hojasDeVidaController::class)->group(function () {
+    Route::get('/dashboardHojas','dashboardHojas')->name('dashboardHojas');
+    Route::post('/storeHoja','storeHoja')->name('storeHoja');
+    Route::get('/verHoja/{id}','verHoja')->name('verHoja');
+
 });
 
 
